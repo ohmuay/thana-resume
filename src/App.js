@@ -14,7 +14,6 @@ import {
   SiJavascript,
   SiMongodb,
   SiMysql,
-  SiPython,
 } from "react-icons/si";
 import {
   FaPhoneAlt,
@@ -32,28 +31,38 @@ const Background = styled.div`
   --color-primary: #3269a8;
   --color-left-panel: #fff8ec;
   padding: 7rem 0;
+  @media print {
+    padding: 0;
+  }
 `;
 
 const Page = styled.div`
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto, minmax(min-content, 1fr)); */
   display: flex;
   margin: 0 auto;
-  width: clamp(400px, 80vw, 1366px);
+  width: clamp(100px, 80vw, 972px);
   background: #fff;
   box-shadow: 0 4rem 10rem rgba(0, 0, 0, 0.4);
+  /* font-size: 1.4rem; */
+  font-size: clamp(1.4rem, 1vw, 2rem);
+  animation: page 1s ease;
+
+  @media print {
+    width: 100vw;
+    box-shadow: none;
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
-const Container = styled.div`
-  padding: 2rem;
-`;
 const LeftPanel = styled.div`
   background: var(--color-left-panel);
   display: flex;
   flex-direction: column;
-  flex: 0 0 clamp(200px, 25%, 450px);
-  > div {
+  flex: 0 1 clamp(240px, 25%, 450px);
+  > div,
+  > header {
     flex: 1;
     padding: 1rem;
   }
@@ -72,9 +81,7 @@ const Header = styled.header`
   align-items: center;
   text-align: center;
 `;
-const Bio = styled.div`
-  background: green;
-`;
+
 const Contact = styled.div``;
 
 const Languages = styled.div``;
@@ -85,7 +92,6 @@ const Skills = styled.div`
 const IconWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   font-size: 3rem;
   margin-bottom: 1rem;
 
@@ -96,12 +102,12 @@ const IconWrapper = styled.div`
 
 const IconItem = styled.div`
   flex: 1;
+  max-width: 25%;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
   margin-bottom: -1rem;
   padding-top: 0.5rem;
   transition: all 0.3s ease;
@@ -135,40 +141,52 @@ const SkillTitle = styled.div`
   }
 `;
 
-const Experiences = styled.div`
-  background: yellow;
-`;
 const Education = styled.div`
+  color: #fff;
+  display: grid;
+  place-items: center;
   background: blue;
 `;
+const Experiences = styled.div`
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  place-items: center;
+  background: yellow;
+`;
 
-const SectionTitle = styled.h3`
+const SectionTitle = styled.h2`
   text-transform: uppercase;
   font-size: 2.5rem;
   font-weight: 300;
   color: var(--color-primary);
+  margin-bottom: 1rem;
   border-bottom: 2px solid currentColor;
-  /* padding-left: 1rem; */
-  /* width: fit-content; */
-  /* min-width: 70%; */
-  /* text-align: right;
-  border-bottom: 0.4rem solid blue; */
 `;
 const Flex = styled.div`
   flex: 1 0 auto;
   gap: 1rem;
   padding: 1rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 `;
-const FlexItem = styled.div`
+const ContactGrid = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  .full-grid {
+    grid-column: 1/-1;
+  }
+`;
+const ContactItem = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   > svg {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 `;
 const LanguageItem = styled.div`
@@ -190,7 +208,49 @@ const IconImg = styled.img`
 `;
 
 const IconName = styled.span`
-  font-size: 1rem;
+  font-size: 1.2rem;
+`;
+
+const Link = styled.a`
+  flex: 1;
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  ::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+    transform-origin: left;
+  }
+  :hover::after {
+    transform: scaleX(1);
+  }
+`;
+
+const H1 = styled.h1`
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--color-primary);
+`;
+const H3 = styled.h2`
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: var(--color-primary);
+`;
+
+const ClipText = styled.h1`
+  /* background: linear-gradient(to bottom, blue, lightblue); */
+  background-image: url(https://2.bp.blogspot.com/-pKFE-5ysj68/TkjG9DvLB4I/AAAAAAAAEoM/rDKiHkvbC8o/s1600/Abstract_Wallpaper_8.jpg);
+  background-position: left;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 `;
 
 function App() {
@@ -202,45 +262,60 @@ function App() {
             <div className="profile">
               <img src={Avatar} alt="avatar" />
             </div>
-            <h1>Thana Wisutphusi</h1>
-            <h2>Software developer</h2>
+            {/* <ClipText>Thana Wisutphusi</ClipText> */}
+            <H1>Thana Wisutphusi</H1>
+            <H3>Software developer</H3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
-              ad necessitatibus assumenda provident, minima et.
+              Lorem ipsum dolor sit amet, con etur adipisicing elit. Ducimus ad
+              necessitatibus assumenda provident, minima et.
             </p>
           </Header>
           <Contact>
             <SectionTitle>Contact</SectionTitle>
-            <Flex>
-              <FlexItem>
-                <SiFacebook style={{ color: "#4267B2" }} />
-                <p>/A.trbcp</p>
-              </FlexItem>
-              <FlexItem>
-                <SiLinkedin style={{ color: "#0e76a8" }} />
-                <p>/thana-w</p>
-              </FlexItem>
-              <FlexItem>
-                <SiGithub style={{ color: "#211f1f" }} />
-                <p>/ohmuay</p>
-              </FlexItem>
-              <FlexItem>
-                <img src={LineIcon} height="30" />
-                <p>ohmuay</p>
-              </FlexItem>
-              <FlexItem>
+            <ContactGrid>
+              <Link href="https://www.facebook.com/A.trbcp/" target="_blank">
+                <ContactItem>
+                  <SiFacebook style={{ color: "#4267B2" }} />
+                  <p>/A.trbcp</p>
+                </ContactItem>
+              </Link>
+              <Link href="https://www.linkedin.com/in/thana-w/" target="_blank">
+                <ContactItem>
+                  <SiLinkedin style={{ color: "#0e76a8" }} />
+                  <p>/thana-w</p>
+                </ContactItem>
+              </Link>
+              <Link href="https://www.github.com/ohmuay/" target="_blank">
+                <ContactItem>
+                  <SiGithub style={{ color: "#211f1f" }} />
+                  <p>/ohmuay</p>
+                </ContactItem>
+              </Link>
+              <Link href="https://line.me/ti/p/~ohmuay" target="_blank">
+                <ContactItem>
+                  <IconImg src={LineIcon} style={{ borderRadius: 0 }} />
+                  <p>ohmuay</p>
+                </ContactItem>
+              </Link>
+              <Link
+                className="full-grid"
+                href="mailto:thana.w@outlook.co.th"
+                target="_blank"
+              >
+                <ContactItem>
+                  <MdMail
+                    style={{
+                      color: "",
+                    }}
+                  />
+                  <p>thana.w@outlook.co.th</p>
+                </ContactItem>
+              </Link>
+              <ContactItem className="full-grid">
                 <FaPhoneAlt style={{ color: "" }} />
                 <p>+66 897989250</p>
-              </FlexItem>
-              <FlexItem>
-                <MdMail
-                  style={{
-                    color: "",
-                  }}
-                />
-                <p>thana.w@outlook.co.th</p>
-              </FlexItem>
-            </Flex>
+              </ContactItem>
+            </ContactGrid>
           </Contact>
           <Languages>
             <SectionTitle>Languages</SectionTitle>
@@ -349,7 +424,56 @@ function App() {
           </Skills>
         </LeftPanel>
         <Panel>
-          <Experiences>Experiences</Experiences>
+          {/* <h2 style={{ textAlign: "center" }}>Experiences</h2> */}
+          <Experiences>
+            Experiences
+            {/* <div
+              className="experience"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div className="experience__overview" style={{ display: "flex" }}>
+                <div>
+                  <p>Haupcar Company</p>
+                  <p>Software developer</p>
+                  <p>March 2021 - Present</p>
+                </div>
+                <div
+                  className="company-logo"
+                  style={{ width: "6rem", background: "red" }}
+                >
+                  logo
+                </div>
+              </div>
+              <div className="experience__responsibility">
+                <ul>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
+                    facilis!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
+                    facilis!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
+                    facilis!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
+                    facilis!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
+                    facilis!
+                  </li>
+                </ul>
+              </div>
+            </div> */}
+          </Experiences>
           <Education>Education</Education>
         </Panel>
       </Page>

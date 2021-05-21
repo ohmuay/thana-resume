@@ -5,7 +5,10 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+@page {
+  size: auto;
+  margin: 0mm;
+}
 h1,
 h2,
 h3,
@@ -14,7 +17,7 @@ p {
   margin: 0;
 }
 html {
-  font-size: 62.5;
+  font-size: 62.5%;
   font-family: "Roboto", sans-serif;
 }
 
@@ -22,5 +25,3 @@ html {
   padding: 0.3rem;
   border-radius: 50%;
 }
-
-
