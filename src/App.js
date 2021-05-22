@@ -32,10 +32,17 @@ const Background = styled.div`
   padding: 2rem 0;
   /* --color-primary: #3269a8; */
   /* --color-left-panel: #fff8ec; */
+
   --color-primary: #333;
-  --color-secondary: #666;
-  /* --color-left-panel: #e9e9e9; */
+  --color-secondary: #333;
+  --color-left-panel: #e9e9e9;
   --color-right-panel: #fff;
+
+  /* --color-primary: #3269a8;
+  --color-secondary: #333;
+  --color-left-panel: #3269a8;
+  --color-right-panel: #fff; */
+
   padding: 7rem 0;
   @media print {
     padding: 0;
@@ -70,7 +77,7 @@ const LeftPanel = styled.div`
   flex: 0 1 clamp(240px, 25%, 450px);
   > div,
   > header {
-    flex: 1;
+    /* flex: 1; */
     padding: 1rem;
   }
 `;
@@ -95,7 +102,9 @@ const Header = styled.header`
 
 const Contact = styled.div``;
 
-const Languages = styled.div``;
+const Languages = styled.div`
+  text-transform: capitalize;
+`;
 
 const Skills = styled.div`
   text-transform: capitalize;
@@ -297,6 +306,7 @@ const Certificates = styled.div`
   }
 `;
 
+const Intro = styled.div``;
 const ClipText = styled.h1`
   /* background: linear-gradient(to bottom, blue, lightblue); */
   background-image: url(https://2.bp.blogspot.com/-pKFE-5ysj68/TkjG9DvLB4I/AAAAAAAAEoM/rDKiHkvbC8o/s1600/Abstract_Wallpaper_8.jpg);
