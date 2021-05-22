@@ -1,0 +1,50 @@
+.experience {
+  color: var(--color-primary);
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  //   padding: 0 2rem;
+  //   border: 1px solid red;
+  //   border-radius: 1rem;
+  //   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  &__overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  &__title {
+    font-size: 2rem;
+    // margin-left: 8rem;
+    // text-align: center;
+    border-bottom: 1px solid var(--color-primary);
+  }
+
+  &__company {
+    font-size: 1.6rem;
+    // padding: 1rem 0;
+  }
+  &__period {
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+}
+
+.responsibility,
+.achievement {
+
+  ::marker {
+    content: ">";
+    color: var(--color-secondary);
+  }
+
+  & ul {
+    padding-left: 2rem;
+  }
+  & li {
+    line-height: 1.4;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    color: var(--color-secondary);
+  }
+  //   background: red;
+}

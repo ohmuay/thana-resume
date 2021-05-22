@@ -7,6 +7,7 @@ import PythonIcon from "../src/statics/img/python-icon.png";
 import TableauIcon from "../src/statics/img/tableau-icon.jpg";
 import ExcelIcon from "../src/statics/img/excel-icon.webp";
 import JmpIcon from "../src/statics/img/jmp-icon.jpg";
+import { udemyCertificates } from "./context";
 import {
   SiFacebook,
   SiGithub,
@@ -24,12 +25,17 @@ import {
 } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import Flag from "react-world-flags";
+import reactDom from "react-dom";
 
 const Background = styled.div`
   min-height: 100vh;
   padding: 2rem 0;
-  --color-primary: #3269a8;
-  --color-left-panel: #fff8ec;
+  /* --color-primary: #3269a8; */
+  /* --color-left-panel: #fff8ec; */
+  --color-primary: #333;
+  --color-secondary: #666;
+  /* --color-left-panel: #e9e9e9; */
+  --color-right-panel: #fff;
   padding: 7rem 0;
   @media print {
     padding: 0;
@@ -38,6 +44,7 @@ const Background = styled.div`
 
 const Page = styled.div`
   display: flex;
+  color: var(--color-secondary);
   margin: 0 auto;
   width: clamp(100px, 80vw, 972px);
   background: #fff;
@@ -70,13 +77,17 @@ const LeftPanel = styled.div`
 const Panel = styled.div`
   flex: 1 1 auto;
   display: flex;
+  gap: 1rem;
   flex-direction: column;
+  background: var(--color-right-panel);
+  padding: 1rem;
   > div {
     flex: 1;
   }
 `;
 const Header = styled.header`
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -94,10 +105,6 @@ const IconWrapper = styled.div`
   justify-content: space-between;
   font-size: 3rem;
   margin-bottom: 1rem;
-
-  @media (hover: hover) {
-    gap: 0.5rem;
-  }
 `;
 
 const IconItem = styled.div`
@@ -116,7 +123,7 @@ const IconItem = styled.div`
   }
 
   /* span = IconName styled component */
-  @media (hover: hover) {
+  @media only screen and (hover: hover) {
     span {
       transition: inherit;
       opacity: 0;
@@ -136,23 +143,23 @@ const SkillTitle = styled.div`
   padding: 0.3rem 0;
   display: none;
 
-  @media (hover: hover) {
+  @media only screen and (hover: hover) {
     display: block;
   }
 `;
 
 const Education = styled.div`
-  color: #fff;
-  display: grid;
-  place-items: center;
-  background: blue;
+  display: flex;
+  flex-direction: column;
 `;
 const Experiences = styled.div`
-  /* display: flex;
-  flex-direction: column; */
-  display: grid;
-  place-items: center;
-  background: yellow;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  /* padding: 1rem; */
+  /* background: yellow; */
+  /* display: grid;
+  place-items: center; */
 `;
 
 const SectionTitle = styled.h2`
@@ -214,12 +221,12 @@ const IconName = styled.span`
 const Link = styled.a`
   flex: 1;
   text-decoration: none;
-  color: #333;
+  color: var(--color-secondary);
   position: relative;
   ::after {
     content: "";
     width: 100%;
-    height: 2px;
+    height: 1px;
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -233,15 +240,61 @@ const Link = styled.a`
   }
 `;
 
+const P = styled.p`
+  font-size: 1.5rem;
+  color: var(--color-primary);
+`;
+
 const H1 = styled.h1`
   font-size: 4rem;
   font-weight: 300;
   color: var(--color-primary);
 `;
-const H3 = styled.h2`
+const H2 = styled.h2`
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid currentColor;
+`;
+const H3 = styled.h3`
+  text-transform: uppercase;
   font-size: 2.25rem;
   font-weight: 300;
   color: var(--color-primary);
+`;
+
+const H4 = styled.h4`
+  text-transform: capitalize;
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-weight: 300;
+`;
+
+const Certificates = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  > div {
+  }
+
+  & ::marker {
+    content: ">";
+    color: var(--color-secondary);
+  }
+  ul {
+    padding-left: 2rem;
+  }
+  li {
+    line-height: 1.4;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    color: var(--color-secondary);
+  }
+  a {
+  }
 `;
 
 const ClipText = styled.h1`
@@ -251,6 +304,13 @@ const ClipText = styled.h1`
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+`;
+
+const Badge = styled.span`
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 9999rem;
+  padding: 0.5rem;
 `;
 
 function App() {
@@ -265,13 +325,16 @@ function App() {
             {/* <ClipText>Thana Wisutphusi</ClipText> */}
             <H1>Thana Wisutphusi</H1>
             <H3>Software developer</H3>
-            <p>
-              Lorem ipsum dolor sit amet, con etur adipisicing elit. Ducimus ad
-              necessitatibus assumenda provident, minima et.
-            </p>
+            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+              <Badge>#selftaught</Badge>
+              <Badge>#passionate</Badge>
+              <Badge>#technology</Badge>
+              <Badge>#fast-learner</Badge>
+              <Badge>#detail-oriented</Badge>
+            </div>
           </Header>
           <Contact>
-            <SectionTitle>Contact</SectionTitle>
+            <H2>Contact</H2>
             <ContactGrid>
               <Link href="https://www.facebook.com/A.trbcp/" target="_blank">
                 <ContactItem>
@@ -317,33 +380,9 @@ function App() {
               </ContactItem>
             </ContactGrid>
           </Contact>
-          <Languages>
-            <SectionTitle>Languages</SectionTitle>
-            <Flex>
-              <LanguageItem>
-                <Flag code="TH" role="flag" />
-                <p>Thai</p>
-                <p>Native</p>
-              </LanguageItem>
-              <LanguageItem>
-                <Flag code="GB" role="flag" />
-                <p>English</p>
-                <p>Intermediate</p>
-              </LanguageItem>
-              <LanguageItem>
-                <Flag code="CN" role="flag" />
-                <p>Mandarin</p>
-                <p>Beginner</p>
-              </LanguageItem>
-              <LanguageItem>
-                <Flag code="JP" role="flag" />
-                <p>Japanese</p>
-                <p>Beginner</p>
-              </LanguageItem>
-            </Flex>
-          </Languages>
+
           <Skills>
-            <SectionTitle>Skills</SectionTitle>
+            <H2>Skills</H2>
             <SkillTitle>Frontend Web development</SkillTitle>
             <IconWrapper>
               <IconItem>
@@ -396,7 +435,7 @@ function App() {
                   className="rounded-icon"
                   style={{
                     color: "#00758F",
-                    backgroundColor: "#eee",
+                    border: "1px solid #999",
                   }}
                 />
                 <IconName>MySQL</IconName>
@@ -409,72 +448,184 @@ function App() {
                 <IconName>Python</IconName>
               </IconItem>
               <IconItem>
-                <IconImg src={TableauIcon} />
+                <IconImg
+                  src={TableauIcon}
+                  style={{ border: "1px solid #999" }}
+                />
                 <IconName>Tableau</IconName>
               </IconItem>
               <IconItem>
-                <IconImg src={JmpIcon} />
+                <IconImg src={JmpIcon} style={{ border: "1px solid #999" }} />
                 <IconName>JMP</IconName>
               </IconItem>
               <IconItem>
-                <IconImg src={ExcelIcon} />
+                <IconImg src={ExcelIcon} style={{ border: "1px solid #999" }} />
                 <IconName>Excel</IconName>
               </IconItem>
             </IconWrapper>
           </Skills>
+          <Languages>
+            <H2>Languages</H2>
+            <Flex>
+              <LanguageItem>
+                <Flag code="TH" role="flag" />
+                <p>Thai</p>
+                <p>Native</p>
+              </LanguageItem>
+              <LanguageItem>
+                <Flag code="GB" role="flag" />
+                <p>English</p>
+                <p>Intermediate</p>
+              </LanguageItem>
+              <LanguageItem>
+                <Flag code="CN" role="flag" />
+                <p>Mandarin</p>
+                <p>Elementary</p>
+              </LanguageItem>
+              <LanguageItem>
+                <Flag
+                  code="JP"
+                  role="flag"
+                  style={{ border: "1px solid #999" }}
+                />
+                <p>Japanese</p>
+                <p>Elementary</p>
+              </LanguageItem>
+            </Flex>
+          </Languages>
         </LeftPanel>
         <Panel>
-          {/* <h2 style={{ textAlign: "center" }}>Experiences</h2> */}
+          <H2>Experiences</H2>
           <Experiences>
-            Experiences
-            {/* <div
-              className="experience"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <div className="experience__overview" style={{ display: "flex" }}>
-                <div>
-                  <p>Haupcar Company</p>
-                  <p>Software developer</p>
-                  <p>March 2021 - Present</p>
-                </div>
-                <div
-                  className="company-logo"
-                  style={{ width: "6rem", background: "red" }}
-                >
-                  logo
-                </div>
+            <div className="experience">
+              <H3>Software Developer</H3>
+              <div className="experience__overview">
+                <P className="experience__company">Haupcar Company</P>
+                <p className="experience__period">Present</p>
               </div>
-              <div className="experience__responsibility">
+              <div className="responsibility">
+                <H4>Responsibilities/Tasks</H4>
                 <ul>
                   <li>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                    facilis!
+                    Creating websites/a website using standard HTML/CSS
+                    practices
                   </li>
                   <li>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                    facilis!
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                    facilis!
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                    facilis!
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                    facilis!
+                    Working closely with web designers and product owner to
+                    produce the website that meet customer requirements
                   </li>
                 </ul>
               </div>
-            </div> */}
+              <div className="achievement">
+                <H4>achievements</H4>
+                <ul>
+                  <li>
+                    Successfully add new feature to existing project in Python
+                    Django Framework
+                  </li>
+                  <li>Develop an internal website using React.js</li>
+                </ul>
+              </div>
+            </div>
+            <div className="experience">
+              <H3>Process Engineer</H3>
+              <div className="experience__overview">
+                <p className="experience__company">Seagate Technology</p>
+                <p className="experience__period">2019 - 2021</p>
+              </div>
+              <div className="responsibility">
+                <H4>Responsibilities/Tasks</H4>
+                <ul>
+                  <li>Manage production line to meet customer’s requirement</li>
+                  <li>Evaluate process performance</li>
+                  <li>Monitor product KPIs to prevent major defects</li>
+                  <li>Take care of product inventory</li>
+                  <li>
+                    Get production data from database with SQL and analyze data
+                    to find cause of defects
+                  </li>
+                  <li>Reporting production data to person involved</li>
+                </ul>
+              </div>
+              <div className="achievement">
+                <H4>achievements</H4>
+                <ul>
+                  <li>
+                    Develop interactive real-time KPIs Monitoring Dashboard
+                    using Tableau (Business Intelligence software)
+                  </li>
+                  <li>
+                    Develop an automated-test program with Python Selenium to
+                    eliminate the boring and repeattedly tasks
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="experience">
+              <H3>Process Improvement Engineer</H3>
+              <div className="experience__overview">
+                <p className="experience__company">Nissan Motor Thailand</p>
+                <p className="experience__period">2017 - 2018</p>
+              </div>
+              <div className="responsibility">
+                <H4>Responsibilities/Tasks</H4>
+                <ul>
+                  <li>Design, run, test and upgrade systems and processes</li>
+                  <li>
+                    Develop best practices, routines and innovatives solutions
+                    to improve production rates and quality of output
+                  </li>
+                  <li>
+                    Provide process documentation and operating instructions
+                  </li>
+                  <li>
+                    Audit actual operating process and operating instructions
+                  </li>
+                  <li>
+                    Monitoring Process KPIs to prevent unexpected situations
+                  </li>
+                </ul>
+              </div>
+              <div className="achievement">
+                <H4>achievements</H4>
+                <ul>
+                  <li>Successfully Manage project Double Door Installation</li>
+                  <li>
+                    Successfully test and adopt new material to mass production
+                  </li>
+                  <li>Project Kaizen to reuse leftover material</li>
+                </ul>
+              </div>
+            </div>
           </Experiences>
-          <Education>Education</Education>
+          <H2>Education</H2>
+          <Education>
+            <H4>bachelor degree of mechatronics engineering</H4>
+            <p>King Mongkut’s Institute of Technology Ladkrabang (2013-2017)</p>
+          </Education>
+          <H2>Certificates</H2>
+          <Certificates>
+            <div>
+              <H4>Test of English for International Communication (TOEIC)</H4>
+              <small>The Total Score ranges from 0 to 990</small>
+              <ul>
+                <li>735 points (2016)</li>
+                <li>910 points (2019)</li>
+              </ul>
+            </div>
+            <div>
+              <H4>Udemy courses certificates</H4>
+              <ul>
+                {udemyCertificates.map((cert) => (
+                  <li>
+                    <Link href={cert.certificateURL} target="_blank">
+                      {cert.courseName}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Certificates>
         </Panel>
       </Page>
     </Background>
