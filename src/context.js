@@ -1,6 +1,16 @@
 export const udemyCertificates = [
   {
     certificateURL:
+      "https://udemy-certificate.s3.amazonaws.com/pdf/UC-01e8fae3-cd29-43dc-9e0a-cedfa695d5b3.pdf",
+    courseName: "Object-oriented Programming in Javascript",
+  },
+  {
+    certificateURL:
+      "https://udemy-certificate.s3.amazonaws.com/pdf/UC-82d58e49-183b-4953-896e-e99740764ef9.pdf",
+    courseName: "Unit Testing and Test Driven Development in NodeJs",
+  },
+  {
+    certificateURL:
       "https://udemy-certificate.s3.amazonaws.com/image/UC-600b7201-1e80-4550-9114-ba88afb4301c.jpg?v=1606913221000",
     courseName: "Data Structures and Algorithms",
   },
