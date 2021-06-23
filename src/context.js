@@ -1,6 +1,11 @@
 export const udemyCertificates = [
   {
     certificateURL:
+      "https://udemy-certificate.s3.amazonaws.com/pdf/UC-4be7758f-7714-4935-98bd-41d18e951e38.pdf",
+    courseName: "Javascript the Advanced Concepts",
+  },
+  {
+    certificateURL:
       "https://udemy-certificate.s3.amazonaws.com/pdf/UC-01e8fae3-cd29-43dc-9e0a-cedfa695d5b3.pdf",
     courseName: "Object-oriented Programming in Javascript",
   },
