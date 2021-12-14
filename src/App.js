@@ -47,6 +47,11 @@ const Background = styled.div`
   @media print {
     padding: 0;
   }
+  
+  @media screen and (max-width:1200px){
+    background:var(--color-left-panel);
+  }
+  
 `;
 
 const Page = styled.div`
@@ -67,6 +72,11 @@ const Page = styled.div`
 
   @media screen and (max-width: 500px) {
     flex-direction: column;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    width: 100vw;
+    box-shadow: none;
   }
 `;
 
@@ -508,10 +518,39 @@ function App() {
           <H2>Experiences</H2>
           <Experiences>
             <div className="experience">
+              <H3>Developer Consultant</H3>
+              <div className="experience__overview">
+                <P className="experience__company">Thoughtworks</P>
+                <p className="experience__period">Present</p>
+              </div>
+              <div className="responsibility">
+                <H4>Methodology/Tools</H4>
+                <ul>
+                  <li>
+                    Agile
+                  </li>
+                  <li>
+                    Test Driven Development
+                  </li>
+                  <li>
+                    Pair Programming
+                  </li>
+                </ul>
+              </div>
+              <div className="achievement">
+                <H4>achievements</H4>
+                <ul>
+                  <li>
+                    Graduated from Thoughtworks University Programme
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="experience">
               <H3>Software Developer</H3>
               <div className="experience__overview">
                 <P className="experience__company">Haupcar Company</P>
-                <p className="experience__period">Present</p>
+                <p className="experience__period">2021</p>
               </div>
               <div className="responsibility">
                 <H4>Responsibilities/Tasks</H4>
@@ -522,7 +561,7 @@ function App() {
                   </li>
                   <li>
                     Working closely with web designers and product owner to
-                    produce the website that meet customer requirements
+                    develop the website that meet customer requirements
                   </li>
                 </ul>
               </div>

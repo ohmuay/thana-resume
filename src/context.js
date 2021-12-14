@@ -1,5 +1,17 @@
 export const udemyCertificates = [
   {
+    certificateURL: "https://udemy-certificate.s3.amazonaws.com/image/UC-ae5d53ec-a9e2-4011-9c45-2c6aadb8566a.jpg?v=1638207097000",
+    courseName: "Clean Code"
+  },
+  {
+    certificateURL: "https://udemy-certificate.s3.amazonaws.com/image/UC-9586205b-b6a5-41bc-b19f-c15b57227dcb.jpg?v=1638639558000",
+    courseName: "Git & Github"
+  },
+  {
+    certificateURL: "https://udemy-certificate.s3.amazonaws.com/image/UC-bae729f4-8aa1-4ec8-9495-33756f234c4a.jpg?v=1636037504000",
+    courseName: "Testing React with Jest and Testing Library"
+  },
+  {
     certificateURL:
       "https://udemy-certificate.s3.amazonaws.com/pdf/UC-4be7758f-7714-4935-98bd-41d18e951e38.pdf",
     courseName: "Javascript the Advanced Concepts",
