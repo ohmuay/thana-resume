@@ -5,7 +5,7 @@ import LineIcon from "../src/statics/img/LINE_APP.png";
 import ExpressIcon from "../src/statics/img/express-js-icon-12.jpg";
 import PythonIcon from "../src/statics/img/python-icon.png";
 import TableauIcon from "../src/statics/img/tableau-icon.jpg";
-import ExcelIcon from "../src/statics/img/excel-icon.webp";
+import ExcelIcon from "../src/statics/img/excel-icon.jpg";
 import JmpIcon from "../src/statics/img/jmp-icon.jpg";
 import { udemyCertificates } from "./context";
 import {
@@ -319,8 +319,9 @@ const Certificates = styled.div`
 const Intro = styled.div``;
 const ClipText = styled.h1`
   /* background: linear-gradient(to bottom, blue, lightblue); */
-  background-image: url(https://2.bp.blogspot.com/-pKFE-5ysj68/TkjG9DvLB4I/AAAAAAAAEoM/rDKiHkvbC8o/s1600/Abstract_Wallpaper_8.jpg);
+  background-image: url(https://img.freepik.com/free-vector/smooth-mesh-blurred-background-multi-color-gradient-pattern-smooth-modern-watercolor-style-backdrop_124894-147.jpg?size=626&ext=jpg);
   background-position: left;
+  background-size:cover;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -342,7 +343,7 @@ function App() {
             <div className="profile">
               <img src={Avatar} alt="avatar" />
             </div>
-            {/* <ClipText>Thana Wisutphusi</ClipText> */}
+             {/*<ClipText>Thana Wisutphusi</ClipText>*/}
             <H1>Thana Wisutphusi</H1>
             <H3>Software developer</H3>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
