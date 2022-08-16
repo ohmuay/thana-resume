@@ -45,6 +45,33 @@
     font-size: 1.5rem;
     padding: 0 1rem;
     color: var(--color-secondary);
+  
   }
-  //   background: red;
+
+  small {
+    font-style: italic;
+  }
+
+  &__development-tools{
+    h4 {
+      font-weight: 400;
+      text-decoration: underline;
+    }
+    > div {
+      display: flex;
+      gap:0.5em;
+
+      span {
+        font-size: smaller;
+        color:white;
+        background-color: #53006cb8;
+        font-weight: 300;
+        padding: 0.2em 0.5em;
+        border-radius: 1000rem;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+  }
 }
+

@@ -1,31 +1,30 @@
 import React from "react";
-import styled from "styled-components";
-import Avatar from "../src/statics/img/avatar.jpg";
-import LineIcon from "../src/statics/img/LINE_APP.png";
-import ExpressIcon from "../src/statics/img/express-js-icon-12.jpg";
-import PythonIcon from "../src/statics/img/python-icon.png";
-import TableauIcon from "../src/statics/img/tableau-icon.jpg";
-import ExcelIcon from "../src/statics/img/excel-icon.jpg";
-import JmpIcon from "../src/statics/img/jmp-icon.jpg";
-import { udemyCertificates } from "./context";
+import {
+  FaCss3Alt,
+  FaHtml5,
+  FaNodeJs,
+  FaPhoneAlt,
+  FaReact,
+} from "react-icons/fa";
+import { MdMail } from "react-icons/md";
 import {
   SiFacebook,
   SiGithub,
-  SiLinkedin,
   SiJavascript,
+  SiLinkedin,
   SiMongodb,
   SiMysql,
 } from "react-icons/si";
-import {
-  FaPhoneAlt,
-  FaReact,
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-} from "react-icons/fa";
-import { MdMail } from "react-icons/md";
 import Flag from "react-world-flags";
-import reactDom from "react-dom";
+import styled from "styled-components";
+import Avatar from "../src/statics/img/avatar.jpg";
+import ExcelIcon from "../src/statics/img/excel-icon.jpg";
+import ExpressIcon from "../src/statics/img/express-js-icon-12.jpg";
+import JmpIcon from "../src/statics/img/jmp-icon.jpg";
+import LineIcon from "../src/statics/img/LINE_APP.png";
+import PythonIcon from "../src/statics/img/python-icon.png";
+import TableauIcon from "../src/statics/img/tableau-icon.jpg";
+import { udemyCertificates } from "./context";
 
 const Background = styled.div`
   min-height: 100vh;
@@ -47,11 +46,10 @@ const Background = styled.div`
   @media print {
     padding: 0;
   }
-  
-  @media screen and (max-width:1200px){
-    background:var(--color-left-panel);
+
+  @media screen and (max-width: 1200px) {
+    background: var(--color-left-panel);
   }
-  
 `;
 
 const Page = styled.div`
@@ -73,7 +71,7 @@ const Page = styled.div`
   @media screen and (max-width: 500px) {
     flex-direction: column;
   }
-  
+
   @media screen and (max-width: 1200px) {
     width: 100vw;
     box-shadow: none;
@@ -321,7 +319,7 @@ const ClipText = styled.h1`
   /* background: linear-gradient(to bottom, blue, lightblue); */
   background-image: url(https://img.freepik.com/free-vector/smooth-mesh-blurred-background-multi-color-gradient-pattern-smooth-modern-watercolor-style-backdrop_124894-147.jpg?size=626&ext=jpg);
   background-position: left;
-  background-size:cover;
+  background-size: cover;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -343,15 +341,17 @@ function App() {
             <div className="profile">
               <img src={Avatar} alt="avatar" />
             </div>
-             {/*<ClipText>Thana Wisutphusi</ClipText>*/}
+            {/* <ClipText>Thana Wisutphusi</ClipText> */}
             <H1>Thana Wisutphusi</H1>
             <H3>Software developer</H3>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
               <Badge>#selftaught</Badge>
               <Badge>#passionate</Badge>
-              <Badge>#technology</Badge>
               <Badge>#fast-learner</Badge>
               <Badge>#detail-oriented</Badge>
+              <Badge>#perfectionist</Badge>
+              <Badge>#can-do</Badge>
+              <Badge>#drives-to-outcome</Badge>
             </div>
           </Header>
           <Contact>
@@ -360,25 +360,25 @@ function App() {
               <Link href="https://www.facebook.com/A.trbcp/" target="_blank">
                 <ContactItem>
                   <SiFacebook style={{ color: "#4267B2" }} />
-                  <p>/A.trbcp</p>
+                  <P>/A.trbcp</P>
                 </ContactItem>
               </Link>
               <Link href="https://www.linkedin.com/in/thana-w/" target="_blank">
                 <ContactItem>
                   <SiLinkedin style={{ color: "#0e76a8" }} />
-                  <p>/thana-w</p>
+                  <P>/thana-w</P>
                 </ContactItem>
               </Link>
               <Link href="https://www.github.com/ohmuay/" target="_blank">
                 <ContactItem>
                   <SiGithub style={{ color: "#211f1f" }} />
-                  <p>/ohmuay</p>
+                  <P>/ohmuay</P>
                 </ContactItem>
               </Link>
               <Link href="https://line.me/ti/p/~ohmuay" target="_blank">
                 <ContactItem>
                   <IconImg src={LineIcon} style={{ borderRadius: 0 }} />
-                  <p>ohmuay</p>
+                  <P>ohmuay</P>
                 </ContactItem>
               </Link>
               <Link
@@ -387,17 +387,13 @@ function App() {
                 target="_blank"
               >
                 <ContactItem>
-                  <MdMail
-                    style={{
-                      color: "",
-                    }}
-                  />
+                  <MdMail />
                   <p>thana.w@outlook.co.th</p>
                 </ContactItem>
               </Link>
               <ContactItem className="full-grid">
-                <FaPhoneAlt style={{ color: "" }} />
-                <p>+66 897989250</p>
+                <FaPhoneAlt />
+                <P>+66 897989250</P>
               </ContactItem>
             </ContactGrid>
           </Contact>
@@ -527,14 +523,16 @@ function App() {
               <div className="responsibility">
                 <H4>Methodology/Tools</H4>
                 <ul>
+                  <li>Agile</li>
+                  <li>Test Driven Development</li>
+                  <li>Pair Programming</li>
+                </ul>
+                <H4>Responsibilities/Tasks</H4>
+                <ul>
+                  <li>transform user stories into high-quality software</li>
                   <li>
-                    Agile
-                  </li>
-                  <li>
-                    Test Driven Development
-                  </li>
-                  <li>
-                    Pair Programming
+                    work in collaborative, product-focused teams to build
+                    innovative customer experiences
                   </li>
                 </ul>
               </div>
@@ -542,7 +540,47 @@ function App() {
                 <H4>achievements</H4>
                 <ul>
                   <li>
-                    Graduated from Thoughtworks University Programme
+                    <div>Graduated from Thoughtworks University Programme</div>
+                    <small>
+                      *implement online shopping web application (demo project)
+                    </small>
+                    <div className="achievement__development-tools">
+                      <h4>Front-end development</h4>
+                      <div>
+                        <span>React.js</span>
+                        <span>jest</span>
+                        <span>react-testing-library</span>
+                      </div>
+                      <h4>Back-end development</h4>
+                      <div>
+                        <span>Java Springboot</span>
+                        <span>Springboot test</span>
+                        <span>JUnit</span>
+                      </div>
+                      <h4>Testings</h4>
+                      <div>
+                        <span>cypress</span>
+                        <span>cucumber</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      Working with international clients from Airline business
+                    </div>
+                    <small>*customer self-service web application</small>
+                    <div className="achievement__development-tools">
+                      <h4>Front-end development</h4>
+                      <div>
+                        <span>React.js</span>
+                        <span>jest</span>
+                        <span>react-testing-library</span>
+                      </div>
+                      <h4>Back-end development</h4>
+                      <div>
+                        <span>C# ASP.NET Core</span>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -667,7 +705,7 @@ function App() {
               <H4>Udemy courses certificates</H4>
               <ul>
                 {udemyCertificates.map((cert) => (
-                  <li>
+                  <li key={cert}>
                     <Link href={cert.certificateURL} target="_blank">
                       {cert.courseName}
                     </Link>
