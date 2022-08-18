@@ -529,9 +529,9 @@ function App() {
                 </ul>
                 <H4>Responsibilities/Tasks</H4>
                 <ul>
-                  <li>transform user stories into high-quality software</li>
+                  <li>Transform user stories into high-quality software</li>
                   <li>
-                    work in collaborative, product-focused teams to build
+                    Work in collaborative, product-focused teams to build
                     innovative customer experiences
                   </li>
                 </ul>
